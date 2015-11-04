@@ -11,15 +11,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151104062945) do
+ActiveRecord::Schema.define(version: 20151104070856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "albums", force: :cascade do |t|
     t.string   "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "cover_art_file_name"
+    t.string   "cover_art_content_type"
+    t.integer  "cover_art_file_size"
+    t.datetime "cover_art_updated_at"
+    t.string   "cover_art_dimensions"
+  end
+
+  create_table "images", force: :cascade do |t|
+    t.integer  "album_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
+    t.string   "file_dimensions"
   end
 
 end

@@ -5,5 +5,10 @@
   <%= @album.title %>
 </p>
 
+<p><%= image_tag @album.cover_art.url(:medium) %></p>
+<% @album.images.each do |image| %>
+  <p><%= image_tag image.file.url(:thumb) %></p>
+<% end %>
+
 <%= link_to 'Edit', edit_album_path(@album) %> |
 <%= link_to 'Back', albums_path %>

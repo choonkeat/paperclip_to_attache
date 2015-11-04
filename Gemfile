@@ -45,3 +45,5 @@ group :development do
   gem 'spring'
 end
 
+gem "paperclip", "~> 4.3"
+gem 'aws-sdk-v1' # If using paperclip <= v4.3.1
