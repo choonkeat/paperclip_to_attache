@@ -5,9 +5,9 @@
   <%= @album.title %>
 </p>
 
-<p><%= image_tag @album.cover_art.url(:medium) %></p>
-<% @album.images.each do |image| %>
-  <p><%= image_tag image.file.url(:thumb) %></p>
+<p><%= image_tag @album.cover_art_url("300x300>") %></p>
+<% @album.images_urls("100x100>").each do |url| %>
+  <p><%= image_tag url %></p>
 <% end %>
 
 <%= link_to 'Edit', edit_album_path(@album) %> |

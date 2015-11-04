@@ -18,20 +18,14 @@
 
   <div class="field">
     <%= f.label :cover_art %><br>
-    <%= f.file_field :cover_art %>
+    <%= f.file_field :cover_art, f.object.cover_art_options('100x100>') %>
   </div>
 
+  <div class="field">
+    <%= f.label :images %><br>
+    <%= f.file_field :images, f.object.images_options('100x100>') %>
+  </div>
 
-  <fieldset>
-    <legend>Images</legend>
-    <% 3.times { f.object.images.build } %>
-    <%= f.fields_for :images do |f| %>
-      <div class="field">
-        <%= f.label :file %><br>
-        <%= f.file_field :file %>
-      </div>
-    <% end %>
-  </fieldset>
   <div class="actions">
     <%= f.submit %>
   </div>
